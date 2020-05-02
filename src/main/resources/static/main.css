@@ -1,0 +1,123 @@
+table  {
+    border-collapse: collapse;
+}
+
+table td, th  {
+    padding: 5px;
+}
+h3 {
+    position: relative;
+    left: 150px;
+    bottom: 10px;
+    margin-left:40px;
+
+}
+h2 {
+    position: relative;
+    left: 150px;
+    bottom: 10px;
+    margin-left:30px;
+
+}
+
+.create-button  {
+    cursor: pointer;
+    padding: 20px 20px;
+    color: blue;
+    font-style: italic;
+    font-size: 120%;
+    text-shadow:2px 2px 3px cornflowerblue;
+}
+.edit-button  {
+    padding: 2px 5px;
+    background: lightgray;
+    cursor: pointer;
+}
+
+.delete-button  {
+    padding: 2px 5px;
+    background: lightgray;
+    cursor: pointer;
+}
+.blue-button {
+    cursor: pointer;
+}
+.doc-button {
+    cursor: pointer;
+    display: block;
+    text-align: center;
+    text-decoration: none;
+    text-transform: uppercase;
+    padding: 10px 5px;
+    color: black;
+    position: relative;
+    bottom: 10px;
+    width: 200px;
+    height: 30px;
+    margin: 10px 10px 40px 5px;
+    margin-left:15px;
+    line-height: 10px;
+    background:darkgrey;
+
+}
+.pat-button {
+    cursor: pointer;
+    text-align: center;
+    display: block;
+    position: relative;
+    text-align: center;
+    text-decoration: none;
+    text-transform: uppercase;
+    padding: 10px 5px;
+    color: black;
+    bottom: 20px;
+    width: 200px;
+    height: 30px;
+    margin: 10px 10px 20px 5px;
+    margin-left:15px;
+    line-height: 10px;
+    background:darkgrey;
+
+}
+.dis-button {
+    cursor: pointer;
+    display: block;
+    text-align: center;
+    text-decoration: none;
+    text-transform: uppercase;
+    padding: 10px 5px;
+    color: black;
+    position: relative;
+    width: 200px;
+    height: 30px;
+    margin: 10px 10px 40px 5px;
+    margin-left:15px;
+    line-height: 10px;
+    background:darkgrey;
+
+}
+.vis-button {
+    cursor: pointer;
+    display: block;
+    text-align: center;
+    text-decoration: none;
+    text-transform: uppercase;
+    padding: 10px 5px;
+    color: black;
+    position: relative;
+    width: 200px;
+    height: 30px;
+    margin: 10px 10px 40px 5px;
+    margin-left:15px;
+    line-height: 10px;
+    background:darkgrey;
+}
+.registry-button {
+    color: blue;
+    font-style: italic;
+    font-size: 150%;
+    text-shadow:2px 2px 3px cornflowerblue;
+    margin-left:40px;
+
+
+}

@@ -1,0 +1,93 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Доктора</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.7/angular.js"></script>
+
+    <script th:src="@{/doctor.js}"></script>
+    <link th:href="@{/main.css}" rel="stylesheet" />
+
+    <head>
+<body ng-app="DoctorManagement" ng-controller="DoctorController">
+<h3>
+    Доктора
+</h3>
+
+<form ng-submit="submitDoctor()">
+    <table border="2">
+        <tr>
+            <td>Id доктора</td>
+            <td><input type="text" placeholder="ID" ng-model="doctorForm.docId" /></td>
+        </tr>
+        <tr>
+            <td>№ доктора</td>
+            <td><input type="text" placeholder="Номер" ng-model="doctorForm.docNo" /></td>
+        </tr>
+        <tr>
+            <td>Фамилия доктора</td>
+            <td><input type="text" placeholder="Фамилия" ng-model="doctorForm.docSurname" required /></td>
+        </tr>
+        <tr>
+            <td>Имя доктора</td>
+            <td><input type="text" placeholder="Имя" ng-model="doctorForm.docName" required /></td>
+        </tr>
+        <tr>
+            <td>Отчество доктора</td>
+            <td><input type="text" placeholder="Отчество" ng-model="doctorForm.docPatronymic" required /></td>
+        </tr>
+        <tr>
+            <td>Должность доктора</td>
+            <td><input type="text" placeholder="Должность" ng-model="doctorForm.position" required /></td>
+
+        </tr>
+        <tr>
+            <td>Дата приема на работу</td>
+            <td><input type="text" placeholder="Дата приема на работу" ng-model="doctorForm.docRecruitment" required /></td>
+        </tr>
+        <tr>
+            <td>№ кабинета доктора</td>
+            <td><input type="text" placeholder="Номер кабинета" ng-model="doctorForm.docCabinet" required /></td>
+        </tr>
+        <tr>
+            <td colspan="5">
+                <input type="submit" value="Отправить" class="blue-button" />
+            </td>
+        </tr>
+    </table>
+</form>
+<br/>
+<a class="create-button" ng-click="createDoctor()">Добавить данные доктора</a>
+<table border="2">
+    <tr>
+        <th>Id</th>
+        <th>№</th>
+        <th>Фамилия</th>
+        <th>Имя</th>
+        <th>Отчество</th>
+        <th>Должность</th>
+        <th>Дата приема на работу</th>
+        <th>Номер кабинета</th>
+        <th>Редактировать</th>
+        <th>Удалить</th>
+    </tr>
+    <!-- $scope.doctors -->
+    <tr ng-repeat="doctor in doctors">
+        <td> {{ doctor.docId }}</td>
+        <td> {{ doctor.docNo }}</td>
+        <td >{{ doctor.docSurname }}</td>
+        <td >{{ doctor.docName }}</td>
+        <td >{{ doctor.docPatronymic }}</td>
+        <td >{{ doctor.position }}</td>
+        <td >{{ doctor.docRecruitment }}</td>
+        <td >{{ doctor.docCabinet }}</td>
+
+        <td>
+            <a ng-click="editDoctor(doctor)" class="edit-button">Редактировать</a>
+        </td>
+        <td>
+            <a ng-click="deleteDoctor(doctor)" class="delete-button">Удалить</a>
+        </td>
+    </tr>
+</table>
+</body>
+</html>

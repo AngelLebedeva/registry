@@ -1,0 +1,87 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Пациенты</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.7/angular.js"></script>
+
+    <script th:src="@{/patient.js}"></script>
+    <link th:href="@{/main.css}" rel="stylesheet" />
+
+    <head>
+<body ng-app="PatientManagement" ng-controller="PatientController">
+<h3>
+    Пациенты
+</h3>
+
+<form ng-submit="submitPatient()">
+    <table border="2">
+        <tr>
+            <td>Id пациента</td>
+            <td><input type="text" placeholder="ID" ng-model="patientForm.patId" /></td>
+        </tr>
+        <tr>
+            <td>Фамилия пациента</td>
+            <td><input type="text" placeholder="Фамилия" ng-model="patientForm.patSurname" required /></td>
+        </tr>
+        <tr>
+            <td>Имя пациента</td>
+            <td><input type="text" placeholder="Имя" ng-model="patientForm.patName" required /></td>
+        </tr>
+        <tr>
+            <td>Отчество пациента</td>
+            <td><input type="text" placeholder="Отчество" ng-model="patientForm.patPatronymic" required /></td>
+        </tr>
+        <tr>
+            <td>Номер медкарты</td>
+            <td><input type="text" placeholder="Номер медкарты" ng-model="patientForm.patMedicalCardNumber" required /></td>
+        </tr>
+        <tr>
+            <td>Дата рождения пациента</td>
+            <td><input type="text" placeholder="Дата рождения" ng-model="patientForm.patDateOfBirth" required /></td>
+
+        </tr>
+        <tr>
+            <td>Пол пациента</td>
+            <td><input type="text" placeholder="Пол пациента" ng-model="patientForm.patGender" required /></td>
+        </tr>
+        <tr>
+            <td colspan="5">
+                <input type="submit" value="Отправить" class="blue-button" />
+            </td>
+        </tr>
+    </table>
+</form>
+<br/>
+<a class="create-button" ng-click="createPatient()">Регистрация нового пациента</a>
+<table border="2">
+    <tr>
+        <th>Id</th>
+        <th>Фамилия</th>
+        <th>Имя</th>
+        <th>Отчество</th>
+        <th>Номер медицинской карты</th>
+        <th>Дата рождения</th>
+        <th>Пол пациента</th>
+        <th>Редактировать</th>
+        <th>Удалить</th>
+    </tr>
+    <!-- $scope.patients -->
+    <tr ng-repeat="patient in patients">
+        <td> {{ patient.patId }}</td>
+        <td >{{ patient.patSurname }}</td>
+        <td >{{ patient.patName }}</td>
+        <td >{{ patient.patPatronymic }}</td>
+        <td >{{ patient.patMedicalCardNumber }}</td>
+        <td >{{ patient.patDateOfBirth }}</td>
+        <td >{{ patient.patGender }}</td>
+
+        <td>
+            <a ng-click="editPatient(patient)" class="edit-button">Редактировать</a>
+        </td>
+        <td>
+            <a ng-click="deletePatient(patient)" class="delete-button">Удалить</a>
+        </td>
+    </tr>
+</table>
+</body>
+</html>

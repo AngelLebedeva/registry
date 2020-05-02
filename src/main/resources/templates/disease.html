@@ -1,0 +1,63 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Список болезней</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.7/angular.js"></script>
+
+    <script th:src="@{/disease.js}"></script>
+    <link th:href="@{/main.css}" rel="stylesheet" />
+
+</head>
+<body ng-app="DiseaseManagement" ng-controller="DiseaseController" >
+<h2>
+    Список болезней
+</h2>
+<form  ng-submit="submitDisease()">
+    <table border="2">
+        <tr>
+            <td>Id диагноза</td>
+            <td><input type="text" placeholder="ID" ng-model="diseaseForm.disId" /></td>
+        </tr>
+        <tr>
+            <td>Название диагноза</td>
+            <td><input type="text" placeholder="Название" ng-model="diseaseForm.disName" required/></td>
+        </tr>
+        <tr>
+            <td>Группа диагноза</td>
+            <td><input type="text" placeholder="Группа" ng-model="diseaseForm.disGroup" required/></td>
+        </tr>
+        <tr>
+
+        <tr>
+            <td colspan="5">
+                <input type="submit" value="Отправить" class="blue-button" />
+            </td>
+    </tr>
+    </table>
+</form>
+<br/>
+<a class="create-button" ng-click="createDisease()">Добавить диагноз</a>
+<table border="2">
+    <tr>
+        <th>Id</th>
+        <th>Название</th>
+        <th>Группа</th>
+        <th>Редактировать</th>
+        <th>Удалить</th>
+    </tr>
+    <!-- $scope.diagnoses -->
+    <tr ng-repeat="disease in diseases">
+        <td> {{ disease.disId }}</td>
+        <td> {{ disease.disName }}</td>
+        <td> {{ disease.disGroup }}</td>
+        <td>
+            <a ng-click="editDisease(disease)" class="edit-button">Редактировать</a>
+        </td>
+        <td>
+            <a ng-click="deleteDisease(disease)" class="delete-button">Удалить</a>
+        </td>
+    </tr>
+</table>
+
+</body>
+</html>

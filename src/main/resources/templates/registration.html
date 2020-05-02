@@ -1,0 +1,83 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Запись к врачу</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.7/angular.js"></script>
+
+    <script th:src="@{/registration.js}"></script>
+    <link th:href="@{/main.css}" rel="stylesheet" />
+
+    <head>
+<body ng-app="RegistrationManagement" ng-controller="RegistrationController">
+<h3>
+    Запись к врачу
+</h3>
+
+<form ng-submit="submitRegistration()">
+    <table border="2">
+        <tr>
+            <td>Id регистрации</td>
+            <td><input type="text" placeholder="ID" ng-model="registrationForm.regId" /></td>
+        </tr>
+        <tr>
+            <td>Должность доктора</td>
+            <td><input type="text" placeholder="Должность" ng-model="registrationForm.position" required/></td>
+        </tr>
+        <tr>
+            <td>Фамилия доктора</td>
+            <td><input type="text" placeholder="Фамилия" ng-model="registrationForm.docSurname" required /></td>
+        </tr>
+        <tr>
+            <td>Фамилия пациента</td>
+            <td><input type="text" placeholder="Фамилия" ng-model="registrationForm.patSurname" required /></td>
+        </tr>
+        <tr>
+            <td>Дата регистрации</td>
+            <td><input type="text" placeholder="Дата" ng-model="registrationForm.visDate" required /></td>
+        </tr>
+        <tr>
+            <td>Время регистрации</td>
+            <td><input type="text" placeholder="Время" ng-model="registrationForm.visTime" required /></td>
+
+        </tr>
+               <tr>
+            <td colspan="5">
+                <input type="submit" value="Отправить" class="blue-button" />
+            </td>
+        </tr>
+    </table>
+</form>
+<br/>
+<a class="create-button" ng-click="createRegistration()">Добавить запись к врачу</a>
+<table border="2">
+    <tr>
+        <th>Id</th>
+        <th>Должность</th>
+        <th>Фамилия врача</th>
+        <th>Фамилия пациента</th>
+        <th>Дата</th>
+        <th>Время</th>
+        <th>Редактировать</th>
+        <th>Удалить</th>
+    </tr>
+
+    <tr ng-repeat="registration in registrations">
+        <td> {{ registration.regId }}</td>
+        <td >{{ registration.position }}</td>
+        <td >{{ registration.docSurname }}</td>
+        <td >{{ registration.patSurname }}</td>
+        <td >{{ registration.visDate }}</td>
+        <td >{{ registration.visTime }}</td>
+
+        <td>
+            <a ng-click="editRegistration(registration)" class="edit-button">Редактировать</a>
+        </td>
+        <td>
+            <a ng-click="deleteRegistration(registration)" class="delete-button">Удалить</a>
+        </td>
+    </tr>
+
+</table>
+
+</body>
+</html>

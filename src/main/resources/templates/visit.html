@@ -1,0 +1,81 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Список посещений</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.7/angular.js"></script>
+
+    <script th:src="@{/visit.js}"></script>
+    <link th:href="@{/main.css}" rel="stylesheet" />
+
+</head>
+<body ng-app="VisitManagement" ng-controller="VisitController">
+<h2>
+    Список посещений
+</h2>
+<form ng-submit="submitVisit()">
+    <table border="2">
+        <tr>
+            <td>Id визита</td>
+            <td><input type="text" placeholder="ID визита" ng-model="visitForm.visId" /></td>
+        </tr>
+        <tr>
+            <td>Id доктора</td>
+            <td><input type="text" placeholder="ID доктора" ng-model="visitForm.docId" required/></td>
+        </tr>
+        <tr>
+            <td>Id пациента</td>
+            <td><input type="text" placeholder="Id пациента" ng-model="visitForm.patId" required /></td>
+        </tr>
+        <tr>
+
+        <tr>
+            <td>Дата посещения</td>
+            <td><input type="text" placeholder="Дата посещения" ng-model="visitForm.visDate" required /></td>
+        </tr>
+        <tr>
+            <td>Время посещения</td>
+            <td><input type="text" placeholder="Время посещения" ng-model="visitForm.visTime" required /></td>
+        </tr>
+        <tr>
+            <td>Id болезни</td>
+            <td><input type="text" placeholder="Id болезни" ng-model="visitForm.disId" required /></td>
+        </tr>
+
+        <tr>
+            <td colspan="5">
+                <input type="submit" value="Отправить" class="blue-button" />
+            </td>
+        </tr>
+    </table>
+</form>
+<br/>
+<a class="create-button" ng-click="createVisit()">Добавить посещение</a>
+<table border="2">
+    <tr>
+        <th>Id посещения</th>
+        <th>Id доктора</th>
+        <th>Id пациента</th>
+        <th>Дата посещения</th>
+        <th>Время посещения</th>
+        <th>Id болезни</th>
+        <th>Редактировать</th>
+        <th>Удалить</th>
+    </tr>
+    <!-- $scope.visits -->
+    <tr ng-repeat="visit in visits">
+        <td> {{ visit.visId }}</td>
+        <td> {{ visit.docId }}</td>
+        <td> {{ visit.patId }}</td>
+        <td> {{ visit.visDate }}</td>
+        <td> {{ visit.visTime }}</td>
+        <td> {{ visit.disId }}</td>
+        <td>
+            <a ng-click="editVisit(visit)" class="edit-button">Редактировать</a>
+        </td>
+        <td>
+            <a ng-click="deleteVisit(visit)" class="delete-button">Удалить</a>
+        </td>
+    </tr>
+</table>
+</body>
+</html>
